@@ -1,0 +1,127 @@
+/* Estilo exótico con fondo multicolor animado */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(270deg, #463f3f, #302927, #1c005c, #003d0a, #000000, #d8d8d8, #5a5a5a);
+    background-size: 2000% 2000%;
+    animation: backgroundShift 5s ease infinite;
+    color: #333;
+    text-align: center;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 25% 50%; }
+    50% { background-position: 50% 50%; }
+    75% { background-position: 75% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px #79041f;
+    margin-top: 20px;
+}
+
+form {
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 600px;
+}
+
+input {
+    margin: 10px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    width: 80%;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #690c22;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+    background: #940023;
+    transform: scale(1.1);
+}
+
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #690019;
+    color: white;
+    font-size: 1.1rem;
+}
+
+td {
+    font-size: 1rem;
+    color: #444;
+}
+
+tr:hover {
+    background-color: #ffe3ed;
+}
+
+.enlace-elegante {
+    position: relative;
+    padding: 12px 24px;
+    color: #5a67d8;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.enlace-elegante::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #5a67d8;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.enlace-elegante:hover {
+    color: #434190;
+}
+
+.enlace-elegante:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
