@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { db } from '../config/db.js';
 
 export const registrarVenta = (venta, Callback) => {
@@ -14,14 +13,14 @@ export const registrarVenta = (venta, Callback) => {
         }
         const total = precio * cantidad;
         db.query(
-            'insert into ventas(id_clientes, id_producto, cantidad, precio_unitario, total) values (?,?,?,?,?)',
+            'insert into ventas(id_cliente, id_producto, cantidad, precio_unitario, total) values (?,?,?,?,?)',
             [id_cliente, id_producto, cantidad, precio, total],
             (err, results) => {
                 if (err) return Callback(err);
 
                 db.query('update productos set stock = stock - ? where id = ?', [cantidad, id_producto], (err2) =>{
                     if(err2) return Callback(err2);
-                    Callback(null, resultado);
+                    Callback(null, results);
                 });
             }
         );
@@ -37,7 +36,7 @@ export const obtenerVentas = (Callback) =>{
         join productos p on v.id_producto = p.id
         order by v.fecha desc`,
 (err, results) =>{
-    if (err) return Callback(err),
+    if (err) return Callback(err);
     Callback(null, results);
     });
 };

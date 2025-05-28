@@ -17,7 +17,7 @@ document.getElementById('formProducto').addEventListener('submit', async (e) => 
     const datos_prod = await respuesta_prod.json();
 
     if (respuesta_prod.ok) {
-      alert(datos_prod.mensaje_prod); // Muestra "Cliente agregado"
+      alert(datos_prod.mensaje);
       document.getElementById('formProducto').reset();
       cargarProductos();
     } else {
